@@ -15,6 +15,7 @@ const store: Store = reactive({
     done: false,
     selected: false,
   })),
+  isShuffling: false,
   settingsOpened: false,
   settings: {
     mode: Mode.Doubles,
@@ -40,6 +41,7 @@ export function useStore () {
       async pick () {
         const pickableCharacters = store.characters.filter(c => !c.done)
         const amount = store.settings.mode === Mode.Doubles ? 2 : 1
+        store.isShuffling = true
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         for (const _ of new Array(pickableCharacters.length)) {
           synth.triggerAttackRelease('F4', 0.1)
@@ -50,6 +52,7 @@ export function useStore () {
           })
           await delay(100)
         }
+        store.isShuffling = false
       },
       reset () {
         store.settingsOpened = false

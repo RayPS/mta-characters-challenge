@@ -14,6 +14,7 @@ export type Character = {
 export type Store = {
   characters: Character[],
   settingsOpened: boolean,
+  isShuffling: boolean,
   settings: {
     mode: Mode,
   },

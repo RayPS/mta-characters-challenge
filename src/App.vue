@@ -25,6 +25,7 @@ const {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
+  -webkit-user-select: none;
   font-size: 16px;
 }
 

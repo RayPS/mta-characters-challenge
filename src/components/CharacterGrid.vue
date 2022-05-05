@@ -2,7 +2,7 @@
 import { useStore } from '@/store'
 
 const {
-  store: { characters },
+  store: { characters, isShuffling },
   getters: { isAllDone },
   actions: { toggleCharacter, pick, reset },
 } = useStore()
@@ -16,7 +16,7 @@ const {
       <img src="@/assets/checkmark.png" class="checkmark">
       <img :src="image" class="image">
     </li>
-    <button v-if="!isAllDone" @click="pick">
+    <button v-if="!isAllDone" :disabled="isShuffling" @click="pick">
       <img src="@/assets/dice.png">Pick
     </button>
     <button v-else @click="reset">
@@ -117,6 +117,10 @@ ul.character-grid {
     &:active {
       transform: scale(0.95);
       background-color: darken($blue, 10);
+    }
+    &:disabled {
+      pointer-events: none;
+      filter: grayscale(100%);
     }
     img {
       height: 1em;
