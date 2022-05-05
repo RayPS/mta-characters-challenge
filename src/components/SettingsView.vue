@@ -50,6 +50,7 @@ $text: hsl(0, 0%, 80%);
   height: 100%;
   background-color: hsla(0, 0%, 0%, 0.2);
   backdrop-filter: brightness(0.5) blur(20px);
+  -webkit-backdrop-filter: brightness(0.5) blur(20px); // Safari
   display: flex;
   place-content: center;
   place-items: center;
@@ -90,7 +91,7 @@ $text: hsl(0, 0%, 80%);
         margin-right: 0.5em;
         border-radius: 50%;
         border: 4px solid $modal-bg;
-        outline: 2px solid $text;
+        box-shadow: 0 0 0 2px $text;
       }
       input[type="radio"]:checked + label:before {
         background-color: $text;
