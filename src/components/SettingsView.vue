@@ -90,11 +90,13 @@ $text: hsl(0, 0%, 80%);
         height: 0.75em;
         margin-right: 0.5em;
         border-radius: 50%;
-        border: 4px solid $modal-bg;
+        border: 10px solid $modal-bg;
         box-shadow: 0 0 0 2px $text;
+        transition: all 250ms ease;
       }
       input[type="radio"]:checked + label:before {
         background-color: $text;
+        border: 4px solid $modal-bg;
       }
     }
     button {
